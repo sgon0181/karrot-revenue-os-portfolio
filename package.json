@@ -1,0 +1,49 @@
+{
+  "name": "karrot-revenue-os",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build --webpack",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "npm run lint && npm run typecheck && npm run test:navigation && npm run test:search && npm run test:market && npm run test:commercial && npm run test:accounts && npm run test:intelligence && npm run test:field-operations && npm run test:landing",
+    "test:navigation": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --experimental-strip-types --test tests/unit/navigation/*.test.ts",
+    "test:search": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --experimental-strip-types --test tests/unit/search-helpers.test.mjs",
+    "test:market": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --experimental-strip-types --test tests/unit/market/*.test.ts",
+    "test:commercial": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --test tests/unit/commercial/commercial.test.ts",
+    "test:accounts": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --disable-warning=ExperimentalWarning --disable-warning=DeprecationWarning --experimental-strip-types --experimental-test-module-mocks --test tests/unit/accounts/*.test.ts",
+    "test:intelligence": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --experimental-strip-types --test tests/unit/intelligence/*.test.ts",
+    "test:field-operations": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --experimental-strip-types --test tests/unit/field-operations/*.test.ts",
+    "test:landing": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --experimental-strip-types --test tests/unit/landing/*.test.mjs",
+    "db:start": "supabase start",
+    "db:stop": "supabase stop",
+    "db:reset": "supabase db reset",
+    "db:types": "supabase gen types typescript --local > src/infrastructure/supabase/database.types.ts",
+    "data:audit": "PYTHONPATH=services/ingestion/src python3 -m karrot_ingestion.cli audit --data-dir .",
+    "data:import": "PYTHONPATH=services/ingestion/src python3 -m karrot_ingestion.cli import-all --data-dir ."
+  },
+  "dependencies": {
+    "@supabase/ssr": "0.12.4",
+    "@supabase/supabase-js": "2.112.3",
+    "clsx": "2.1.1",
+    "lucide-react": "1.31.0",
+    "next": "16.3.8",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "zod": "4.4.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "4.3.3",
+    "@types/node": "26.2.0",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.4",
+    "eslint": "9.39.5",
+    "eslint-config-next": "16.3.8",
+    "happy-dom": "20.11.6",
+    "supabase": "2.114.0",
+    "tailwindcss": "4.3.3",
+    "typescript": "6.0.3"
+  }
+}

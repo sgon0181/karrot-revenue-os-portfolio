@@ -1,0 +1,2 @@
+-- The configurable pipeline stages are seeded in the initial CRM migration so
+-- hosted and local environments receive the same baseline.
