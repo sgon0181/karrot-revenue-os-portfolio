@@ -1,6 +1,6 @@
 # Web application source
 
-This directory contains the deployed Next.js application.
+This directory contains the Next.js application source for the public portfolio edition.
 
 ```text
 app/             URL entry points, layouts and authentication actions
@@ -9,7 +9,7 @@ infrastructure/  Supabase and other external-system adapters
 shared/          Reusable UI and dependency-light utilities
 ```
 
-Start at the root [`START_HERE.md`](../START_HERE.md). Route files should be thin: they translate URL inputs and compose a feature. Database queries, mutations and substantial UI belong to the owning feature.
+Start at the root [README](../README.md). Route files should be thin: they translate URL inputs and compose a feature. Database queries, mutations and substantial UI belong to the owning feature.
 
 Dependency direction:
 
