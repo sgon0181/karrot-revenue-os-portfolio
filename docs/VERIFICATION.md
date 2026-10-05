@@ -5,6 +5,7 @@ Validated locally on 6 October 2026 against the curated public snapshot:
 - 166 JavaScript/TypeScript tests passed, with lint and typecheck included.
 - Production build passed.
 - Seven Python normalization and matching tests passed.
+- Gitleaks scanned the fresh public history and reported one LinkedIn-client-ID match on the JSX variable `evidenceSource`. Manual review confirmed that it is an ordinary variable name, not a credential. No actual secret was found.
 - Next.js and its ESLint configuration were updated to 16.3.8 after the dependency audit found critical runtime advisories in the original lockfile.
 - `npm audit --omit=dev` reported zero vulnerabilities after the update.
 - The full dependency audit still reports five high-severity findings in the development-only ESLint/fast-glob/micromatch/braces chain. The suggested automatic fix downgrades Next.js ESLint configuration across major versions and was not applied. Do not expose development tooling to untrusted users or treat this as a deployment clearance.
